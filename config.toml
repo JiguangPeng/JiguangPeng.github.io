@@ -155,9 +155,9 @@ theme = "FixIt"
       enable = true
       #  选择使用 Gravatar 源站或其他镜像站，若留空则为默认的 "www.gravatar.com"
       #   参数 `home.profile.gravatarSite` 自 v0.2.14 起已弃用，请改用 `gravatar.host`
-      #gravatarSite = ""
+      gravatarSite = ""
       # Gravatar 邮箱，用于优先在主页显示的头像
-      #gravatarEmail = ""
+      gravatarEmail = ""
       # 主页显示头像的 URL
       avatarURL = "/images/avatar.png"
       #  主页显示的网站标题（支持 HTML 格式）
@@ -231,7 +231,7 @@ theme = "FixIt"
     Dribbble = ""
     Wordpress = ""
     Vine = ""
-    Googlescholar = "a3Z0ImoAAAAJ"
+    Googlescholar = ""
     Researchgate = ""
     Mastodon = ""
     Thingiverse = ""
@@ -278,7 +278,7 @@ theme = "FixIt"
     #  页面样式 ("narrow", "normal", "wide", ...)
     pageStyle = "normal"
     #  强制使用 Gravatar 作为作者头像
-    gravatarForce = true
+    gravatarForce = false
     #  目录配置
     [params.page.toc]
       # 是否使用目录
