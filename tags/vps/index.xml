@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>VPS - 标签 - 基因即因</title>
+    <link>http://pengjiguang.top/tags/vps/</link>
+    <description>VPS - 标签 - 基因即因</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>pengjiguang@gmail.com (Jiguang Peng)</managingEditor>
+      <webMaster>pengjiguang@gmail.com (Jiguang Peng)</webMaster><lastBuildDate>Tue, 25 Jul 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://pengjiguang.top/tags/vps/" rel="self" type="application/rss+xml" /><item>
+  <title>Linux服务器性能测试</title>
+  <link>http://pengjiguang.top/linux_performance_evaluation/</link>
+  <pubDate>Tue, 25 Jul 2017 00:00:00 &#43;0000</pubDate>
+  <author>Jiguang Peng</author>
+  <guid>http://pengjiguang.top/linux_performance_evaluation/</guid>
+  <description><![CDATA[bench.sh 一键脚本 经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。 并将测试结果以较为美观的方式显示出来。 bench.sh 特]]></description>
+</item></channel>
+</rss>

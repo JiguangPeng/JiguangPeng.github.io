@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>VIM - 标签 - 基因即因</title>
+    <link>http://pengjiguang.top/tags/vim/</link>
+    <description>VIM - 标签 - 基因即因</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>pengjiguang@gmail.com (Jiguang Peng)</managingEditor>
+      <webMaster>pengjiguang@gmail.com (Jiguang Peng)</webMaster><lastBuildDate>Wed, 26 Jul 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://pengjiguang.top/tags/vim/" rel="self" type="application/rss+xml" /><item>
+  <title>VIM编辑器的配置及使用</title>
+  <link>http://pengjiguang.top/vim_configuration_using/</link>
+  <pubDate>Wed, 26 Jul 2017 00:00:00 &#43;0000</pubDate>
+  <author>Jiguang Peng</author>
+  <guid>http://pengjiguang.top/vim_configuration_using/</guid>
+  <description><![CDATA[VIM的配置 VIM使用技巧合集 This is a tip 一个 技巧 横幅 简明Vim练级攻略 Vim代码缩进设置 vim粘贴模式快捷方式]]></description>
+</item></channel>
+</rss>

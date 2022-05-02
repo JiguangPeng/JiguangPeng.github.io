@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Linux服务器性能测试 - 基因即因</title><meta name="author" content="Jiguang Peng: ">
+<meta name="description" content="bench.sh 一键脚本 经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。 并将测试结果以较为美观的方式显示出来。 bench.sh 特" />
+<meta name="keywords" content="Linux,VPS" /><meta itemprop="name" content="Linux服务器性能测试">
+<meta itemprop="description" content="bench.sh 一键脚本 经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。 并将测试结果以较为美观的方式显示出来。 bench.sh 特"><meta itemprop="datePublished" content="2017-07-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2017-07-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="917"><meta itemprop="image" content="http://pengjiguang.top/"/>
+<meta itemprop="keywords" content="Linux,VPS," /><meta property="og:title" content="Linux服务器性能测试" />
+<meta property="og:description" content="bench.sh 一键脚本 经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。 并将测试结果以较为美观的方式显示出来。 bench.sh 特" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://pengjiguang.top/linux_performance_evaluation/" /><meta property="og:image" content="http://pengjiguang.top/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-07-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-07-25T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://pengjiguang.top/"/>
+
+<meta name="twitter:title" content="Linux服务器性能测试"/>
+<meta name="twitter:description" content="bench.sh 一键脚本 经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。 并将测试结果以较为美观的方式显示出来。 bench.sh 特"/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://pengjiguang.top/linux_performance_evaluation/" /><link rel="next" href="http://pengjiguang.top/vim_configuration_using/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Linux服务器性能测试",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/pengjiguang.top\/linux_performance_evaluation\/"
+    },"genre": "posts","keywords": "Linux, VPS","wordcount":  917 ,
+    "url": "http:\/\/pengjiguang.top\/linux_performance_evaluation\/","datePublished": "2017-07-25T00:00:00+00:00","dateModified": "2017-07-25T00:00:00+00:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "Jiguang Peng"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="基因即因"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar.png"
+    data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+    data-sizes="auto"
+    alt="基因即因"
+    title="基因即因" /><span class="header-title-text">基因即因</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >文章</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="基因即因"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/avatar.png"
+    data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+    data-sizes="auto"
+    alt="/images/avatar.png"
+    title="/images/avatar.png" /><span class="header-title-text">基因即因</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fas fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fas fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >文章</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux服务器性能测试</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="https://www.gravatar.com/avatar/0f19c1a2fb312883b68ab0e34d7c643c?s=32&amp;d="
+    data-srcset="https://www.gravatar.com/avatar/0f19c1a2fb312883b68ab0e34d7c643c?s=32&amp;d=, https://www.gravatar.com/avatar/0f19c1a2fb312883b68ab0e34d7c643c?s=32&amp;d= 1.5x, https://www.gravatar.com/avatar/0f19c1a2fb312883b68ab0e34d7c643c?s=32&amp;d= 2x"
+    data-sizes="auto"
+    alt="Jiguang Peng"
+    title="Jiguang Peng" />&nbsp;Jiguang Peng</span></span>
+          <span class="post-category">收录于 <a href="/categories/linux/"><i class="far fa-folder fa-fw"></i>&nbsp;Linux</a></span></div>
+      <div class="post-meta-line"><span title=2017-07-25&#32;00:00:00>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2017-07-25" >2017-07-25</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 917 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#benchsh-一键脚本">bench.sh 一键脚本</a></li>
+    <li><a href="#unixbench-一键脚本">UnixBench 一键脚本</a></li>
+    <li><a href="#sysbench">sysbench</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="benchsh-一键脚本">bench.sh 一键脚本</h2>
+<p>经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。
+并将测试结果以较为美观的方式显示出来。</p>
+<p><code>bench.sh</code> 特点：</p>
+<ul>
+<li>显示当前测试的各种系统信息；</li>
+<li>取自世界多处的知名数据中心的测试点，下载测试比较全面；</li>
+<li>支持 IPv6 下载测速；</li>
+<li>IO 测试三次，并显示平均值。</li>
+</ul>
+<p>使用方法:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#直接在线使用</span>
+</span></span><span class="line"><span class="cl">wget -qO- bench.sh <span class="p">|</span> bash <span class="c1">#-qO-最后的`-`表示写入内存不保存文件</span>
+</span></span><span class="line"><span class="cl">curl -Lso- bench.sh <span class="p">|</span> bash
+</span></span><span class="line"><span class="cl"><span class="c1">#注：bench.sh 既是脚本名，同时又是域名，所以可以这样简写</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#下载之后本地随时使用</span>
+</span></span><span class="line"><span class="cl">wget https://github.com/teddysun/across/raw/master/bench.sh
+</span></span><span class="line"><span class="cl">chmod +x bench.sh
+</span></span><span class="line"><span class="cl">./bench.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我在一个vultr单核VPS上运行结果如下：
+<img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="http://otdxy3f89.bkt.clouddn.com/17-7-25/45713745.jpg"
+    data-srcset="http://otdxy3f89.bkt.clouddn.com/17-7-25/45713745.jpg, http://otdxy3f89.bkt.clouddn.com/17-7-25/45713745.jpg 1.5x, http://otdxy3f89.bkt.clouddn.com/17-7-25/45713745.jpg 2x"
+    data-sizes="auto"
+    alt="http://otdxy3f89.bkt.clouddn.com/17-7-25/45713745.jpg"
+    title="vultr_bench" /></p>
+<h2 id="unixbench-一键脚本">UnixBench 一键脚本</h2>
+<p>UnixBench是一个类unix系（Unix，BSD，Linux）统下的性能测试工具，一个开源工具，被广泛用与测试linux系统主机的性能。Unixbench的主要测试项目有：系统调用、读写、进程、图形化测试、2D、3D、管道、运算、C库等系统基准性能提供测试数据。</p>
+<ul>
+<li>UnixBench目前只支持<code>centos</code>、<code>debian</code>、<code>ubuntu</code> 三种Linux系统&hellip;</li>
+<li>UnixBench需要root权限，所以需要切换到root用户或者使用sudo。</li>
+<li>UnixBench大概需要运行10-30分钟（根据CPU内核数量，运算时间不等）得出分数，越高越好。</li>
+</ul>
+<p>使用方法:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/teddysun/across/raw/master/unixbench.sh
+</span></span><span class="line"><span class="cl">chmod +x unixbench.sh
+</span></span><span class="line"><span class="cl">./unixbench.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如果要测试graphic，则需要修改Makefile，开启”GRAPHIC_TESTS = defined”，同时需要系统提供x11perf命令gl_glibs库。不过大多数Linux服务器都是没有显卡或者是集显，所以图像性能无需测试。</p>
+</blockquote>
+<h2 id="sysbench">sysbench</h2>
+<p>sysbench是一个模块化的、跨平台、多线程基准测试工具，主要用于评估测试各种不同系统参数下的<code>数据库</code>负载情况。
+sysbench支持以下几种测试模式：</p>
+<blockquote>
+<p>1、fileio   磁盘IO性能
+2、cpu      CPU运算性能
+3、memory   内存分配及传输速度
+4、threads  线程子系统性能测试
+5、mutex    互斥性能测试
+6、oltp     数据库性能(OLTP在线事务处理测试)
+目前sysbench主要支持 mysql,drizzle,pgsql,oracle 等几种数据库。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">emerge -av sysbench <span class="c1">#gentoo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#简单使用</span>
+</span></span><span class="line"><span class="cl">sysbench --test<span class="o">=</span>fileio --file-test-mode<span class="o">=</span>seqwr run
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多内容查看<a
+  href="http://ghoulich.xninja.org/2016/05/11/sysbench-manual/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>sysbench使用教程</a></p>
+<p>扩展阅读：<a
+  href="https://teddysun.com/451.html"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>一键脚本那些事儿</a></p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2017-07-25&#32;00:00:00>更新于 2017-07-25</span>
+      </div>
+      <div class="post-info-license"><span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/linux/">Linux</a>,&nbsp;<a href="/tags/vps/">VPS</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav">
+      <a href="/vim_configuration_using/" class="next" rel="next" title="VIM编辑器的配置及使用">VIM编辑器的配置及使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i>
+            <span itemprop="copyrightYear">2018 - 2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="/"
+  
+  
+  
+  
+  
+  
+>Jiguang Peng</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="far fa-user fa-fw"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets">
+  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+      <i class="fas fa-arrow-up fa-fw"></i>
+    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+      <i class="fas fa-comment fa-fw"></i>
+    </a>
+  </div><div id="mask"></div>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/lunr/lunr.min.js" defer></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js" defer></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/katex/katex.min.js" defer></script><script type="text/javascript" src="/lib/katex/auto-render.min.js" defer></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js" defer></script><script type="text/javascript" src="/lib/katex/mhchem.min.js" defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>
