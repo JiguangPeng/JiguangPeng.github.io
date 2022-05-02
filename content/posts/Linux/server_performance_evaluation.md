@@ -34,7 +34,7 @@ chmod +x bench.sh
 
 我在一台本地服务器上运行结果如下： 
 
-![gemini_benchmark](gemini_benchmark.png)
+![gemini_benchmark](../media/gemini_benchmark.png)
 
 
 ## UnixBench 一键脚本
