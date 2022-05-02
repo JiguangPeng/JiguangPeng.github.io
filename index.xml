@@ -8,10 +8,10 @@
       <atom:link href="http://pengjiguang.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
   <title>Linux没有ROOT权限如何安装软件</title>
-  <link>http://pengjiguang.top/linux_install_software_without_root_privileges/</link>
+  <link>http://pengjiguang.top/install_software_without_root_privileges/</link>
   <pubDate>Wed, 11 Oct 2017 00:00:00 &#43;0000</pubDate>
   <author>Jiguang Peng</author>
-  <guid>http://pengjiguang.top/linux_install_software_without_root_privileges/</guid>
+  <guid>http://pengjiguang.top/install_software_without_root_privileges/</guid>
   <description><![CDATA[Conda 环境变量 1 2 3 4 5 6 7 ### Initiative PS1=&#39;\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] &#39; export PATH=~/local/bin:~/bin:$PATH #export LD_LIBRARY_PATH=~/local/lib:$LD_LIBRARY_PATH export CORE=$(grep &#34;processor&#34; /proc/cpuinfo|sort -u|wc -l) #解决Perl、Python、MongoDB 等 Shell 中 Backspace 键出现 ^H 问题 stty erase ^H Python 1 2 3 wget https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tgz ./configure]]></description>
 </item><item>
   <title>VIM编辑器的配置及使用</title>
@@ -22,10 +22,10 @@
   <description><![CDATA[VIM的配置 VIM使用技巧合集 This is a tip 一个 技巧 横幅 简明Vim练级攻略 Vim代码缩进设置 vim粘贴模式快捷方式]]></description>
 </item><item>
   <title>Linux服务器性能测试</title>
-  <link>http://pengjiguang.top/linux_performance_evaluation/</link>
+  <link>http://pengjiguang.top/server_performance_evaluation/</link>
   <pubDate>Tue, 25 Jul 2017 00:00:00 &#43;0000</pubDate>
   <author>Jiguang Peng</author>
-  <guid>http://pengjiguang.top/linux_performance_evaluation/</guid>
+  <guid>http://pengjiguang.top/server_performance_evaluation/</guid>
   <description><![CDATA[bench.sh 一键脚本 经过几个版本的演化，一键测试脚本 bench.sh 已经几乎全面适用于各种 Linux 发行版的网络（下行）和 IO 测试。 并将测试结果以较为美观的方式显示出来。 bench.sh 特]]></description>
 </item></channel>
 </rss>
