@@ -32,8 +32,9 @@ chmod +x bench.sh
 ./bench.sh
 ```
 
-我在一个vultr单核VPS上运行结果如下：
-![vultr_bench](http://otdxy3f89.bkt.clouddn.com/17-7-25/45713745.jpg)
+我在一台本地服务器上运行结果如下： 
+
+![gemini_benchmark](gemini_benchmark.png)
 
 
 ## UnixBench 一键脚本
