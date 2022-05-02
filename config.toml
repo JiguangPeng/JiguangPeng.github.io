@@ -402,14 +402,14 @@ theme = "FixIt"
         clientSecret = ""
       # Valine 评论系统设置 (https://github.com/xCss/Valine)
       [params.page.comment.valine]
-        enable = false
-        appId = ""
-        appKey = ""
-        placeholder = ""
-        avatar = "mp"
-        meta= ""
+        enable = true
+        appId = "xs1QCxXP2n9RynPElEekwHab-gzGzoHsz"
+        appKey = "JnBUg4LPxwggyoxCkt8GB7ME"
+        placeholder = "有事请留言，评论功能以邮件作为通知方式~\n"
+        avatar = "wavatar"
+        meta= ['nick','mail','link']
         pageSize = 10
-        lang = ""
+        lang = "zh-CH"
         visitor = true
         recordIP = true
         highlight = true
