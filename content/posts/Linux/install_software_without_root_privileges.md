@@ -1,5 +1,6 @@
 ---
 title: Linux没有ROOT权限如何安装软件
+slug: "install-software-without-root-privileges"
 author: Jiguang Peng
 date: 2017-10-11
 draft: false

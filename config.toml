@@ -1,4 +1,4 @@
-baseURL = "http://pengjiguang.top/"
+baseURL = "https://jiguangpeng.github.io/my_website/"
 # [en, zh-cn, fr, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
 # 网站语言，仅在这里 CN 大写
@@ -110,7 +110,7 @@ theme = "FixIt"
     #  是否显示作者
     author = true
     # 网站创立年份
-    since = '2018'
+    since = 2018
     #  网站创立时间
     siteTime = '' # 例：'2019-02-03T19:30:34+08:00'
     #  是否显示网站内容总字数
@@ -698,7 +698,7 @@ theme = "FixIt"
 # Permalinks 配置 (https://gohugo.io/content-management/urls#permalinks)
 [Permalinks]
   # posts = ":year/:month/:filename"
-  posts = ":filename"
+  posts = "/posts/:slug"
 
 # 隐私信息配置 (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]

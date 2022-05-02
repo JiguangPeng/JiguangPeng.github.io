@@ -1,5 +1,6 @@
 ---
 title: Linux服务器性能测试
+slug: "server-performance-evaluation"
 author: Jiguang Peng
 date: 2017-07-25
 draft: false

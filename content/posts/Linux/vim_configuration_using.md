@@ -1,5 +1,6 @@
 ---
 title: VIM编辑器的配置及使用
+slug: "vim-configuration-instruction"
 author: Jiguang Peng
 date: 2017-07-26
 draft: false
