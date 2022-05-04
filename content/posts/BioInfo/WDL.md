@@ -35,6 +35,7 @@ WDL有6个基本元件：
 ### 1.2 WDL语法
 
 **变量**
+
 变量的声明格式为`Type（？+） name=value`，value可以不存在，由外部传入。
 其中Type的类型有String、Int、Float、Boolean、File、Array、Pair、Map，以及自定义的Struct类型。
 ?表示变量可不用传入信息，+只能跟在Aarry后面，表示数组至少有一个元素。
@@ -49,6 +50,7 @@ Array[Int] a1
 ```
 
 **runtime**
+
 配置task的运行环境，一般有cpu，memory,docker等。根据不同的任务和运行平台进行设置，也可以是变量，由外部来导入。
 
 一个简单的GATK HaplotypeCaller流程
@@ -178,11 +180,15 @@ cromwell主要有`run`和`server`两个模式。
 - `cromwell run` workflow.wdl -i <input.json> #运行workflow
 
 **配置文件**
+
 `java -Dconfig.file=cromwell.conf -jar cromwell.jar run pipeline.wdl -i pipeline.json -o config.json`
+
 通过[cromwell.conf](https://cromwell.readthedocs.io/en/stable/Configuring/)全局配置文件对cromwell的缓存、流程日志、文件系统、数据库进行个性化设置。可选参数比较多，可以下载[模板](https://github.com/broadinstitute/cromwell/blob/develop/cromwell.example.backends/cromwell.examples.conf)在此基础上修改。
+
 通过[config.json](https://cromwell.readthedocs.io/en/stable/wf_options/Overview/)流程配置文件设置单独的参数。
 
 对于import了其他wdl文件的WDL脚本，建议做法是**将需要import的wdl文件压缩到一个zip**里面，然后使用cromwell中的import命令导入：
+
 `java -Dconfig.file=cromwell.conf -jar cromwell.jar run pipeline.wdl -i pipeline.json -o config.json --imports resource.zip`
 
 **运行目录结构**
@@ -224,6 +230,7 @@ cromwell默认开启8000端口，可以在cromwell.config中修改网络配置�
 #### 2.3.2 Client客户端
 `REST API`直接使用Python访问Server提供的API接口。
 `cromshell`[![GitHub stars](https://badgen.net/github/stars/broadinstitute/cromshell)](https://github.com/broadinstitute/cromshell) 由broad开发，实质是基于`curl`的shell脚本做的进一步封装。
+
 [cromwell-tools](https://github.com/broadinstitute/cromwell-tools), 也是由broad开发，实质是基于python对API的进一步封装。
 
 使用示例：
@@ -236,14 +243,12 @@ cromshell logs -2
 ```
 
 [oliver](https://github.com/stjudecloud/oliver) 是St. Jude Children's Research Hospital基于python开发的cromwell工具。
-Oliver特点：
+
+oliver特点：
 - Workflow Orchestration. Easily submit, inspect, kill, and retry workflows in a Cromwell environment.
 - Better Job Tracking. Jobs can be associated with names and job groups to enable better status reporting.
 - Dynamic Argument Parsing. Specify inputs and options on the command line rather than editing JSON files.
 - Third-party Cloud Integrations. Use the aws and azure subcommands to explore cloud-specific functionality.
-```
-
-```
 
 
 ## 3. Cromwell进阶
@@ -281,11 +286,6 @@ backend {
         # Limits the number of concurrent jobs， 主要针对cromwell server 设计
         concurrent-job-limit = 5
 
-        # If an 'exit-code-timeout-seconds' value is specified:
-        # - check-alive will be run at this interval for every job
-        # - if a job is found to be not alive, and no RC file appears after this interval
-        # - Then it will be marked as Failed.
-        # Warning: If set, Cromwell will run 'check-alive' for every job at this interval
         # 多长时间检查（check-alive）一次任务状态，默认是120s
         exit-code-timeout-seconds = 120
 
@@ -323,6 +323,7 @@ backend {
         job-id-regex = "(\\d+)"
       }
     }
+  }
 }
 ```
 
