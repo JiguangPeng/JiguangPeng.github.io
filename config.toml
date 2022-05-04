@@ -286,7 +286,7 @@ theme = "FixIt"
       #  是否保持使用文章前面的静态目录
       keepStatic = false
       # 是否使侧边目录自动折叠展开
-      auto = true
+      auto = false
       #  目录位置 ("left", "right")
       position = "right"
     #  在文章开头显示提示信息，提醒读者文章内容可能过时
@@ -305,7 +305,7 @@ theme = "FixIt"
       #  是否显示代码块的编辑按钮
       edit = true
       # 默认展开显示的代码行数
-      maxShownLines = 10
+      maxShownLines = 50
     #  文章编辑
     [params.page.edit]
       enable = false
@@ -405,9 +405,9 @@ theme = "FixIt"
         enable = true
         appId = "xs1QCxXP2n9RynPElEekwHab-gzGzoHsz"
         appKey = "JnBUg4LPxwggyoxCkt8GB7ME"
-        placeholder = "有事请留言，评论功能以邮件作为通知方式~\n"
-        avatar = "wavatar"
-        meta= ['nickname','mail','link']
+        placeholder = "有事请留言，填写正确邮箱可以确保及时收到评论回复~\n"
+        avatar = "robohash"
+        meta= ['nick','mail','link']
         pageSize = 10
         lang = "zh-CH"
         visitor = true
